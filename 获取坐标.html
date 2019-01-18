@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>当前地理坐标</title>
+</head>
+<body>
+	<p id="loca"></p>
+	<script type="text/javascript">
+		var x=document.getElementById("loca");
+		function getLocation(){
+		  	if(navigator.geolocation){
+		    	navigator.geolocation.getCurrentPosition(showPosition);
+		    }
+		  	else{
+		  		x.innerHTML="Geolocation is not supported by this browser.";
+			}
+		}
+		function showPosition(position){
+		  x.innerHTML="经度: " + position.coords.latitude +
+		  "<br />纬度: " + position.coords.longitude;
+		}
+		getLocation();
+		// setTimeout('getLocation',5000);
+	</script>
+</body>
+</html>
